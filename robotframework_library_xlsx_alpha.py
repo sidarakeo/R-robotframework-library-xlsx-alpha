@@ -25,15 +25,15 @@ def add_value_by_list(file_name, start_column, start_row, value):
   	wb.save(file_name)
 def add_value_by_date(file_name, start_column, start_row, value):
     with closing(load_workbook(filename=file_name)) as wb:
-		ws = wb.active
-		start_row =int(start_row)
-		start_column= int(start_column)
-		for i in value:
-			i = datetime.datetime.strptime(i, "%m/%d/%Y")
-			ws.cell(row=start_row, column=start_column).value = i
-			ws.cell(row=start_row, column=start_column).number_format = 'm/DD/YYYY'
-			start_row += 1
-		wb.save(file_name)   	    
+	ws = wb.active
+	start_row =int(start_row)
+	start_column= int(start_column)
+	for i in value:
+		i = datetime.datetime.strptime(i, "%m/%d/%Y")
+		ws.cell(row=start_row, column=start_column).value = i
+		ws.cell(row=start_row, column=start_column).number_format = 'm/DD/YYYY'
+		start_row += 1
+	wb.save(file_name)   	    
 def add_value(file_name, cell_cords, value):
     with closing(load_workbook(filename=file_name)) as wb:
         ws = wb.active
@@ -41,22 +41,14 @@ def add_value(file_name, cell_cords, value):
         wb.save(file_name)       
 def add_value_dateformat(file_name, cell_cords, value):
     with closing(load_workbook(filename=file_name)) as wb:
-		ws = wb.active
-		print(value)
-		valuec = datetime.datetime.strptime(value, "%m/%d/%Y")
-		cell = ws[cell_cords]
-		cell.value = valuec
-		cell.number_format = 'm/DD/YYYY'
-		wb.save(file_name)
-def add_value_dateformat_new(file_name, cell_cords, value):
-    with closing(load_workbook(filename=file_name)) as wb:
-		ws = wb.active
-		print(value)
-		valuec = datetime.datetime.strptime(value, "%m/%d/%Y")
-		cell = ws[cell_cords]
-		cell.value = valuec
-		cell.number_format = 'm/DD/YYYY'
-		wb.save(file_name)		
+	ws = wb.active
+	print(value)
+	valuec = datetime.datetime.strptime(value, "%m/%d/%Y")
+	cell = ws[cell_cords]
+	cell.value = valuec
+	cell.number_format = 'm/DD/YYYY'
+	wb.save(file_name)
+		
 def convert_date_format(value):
 		value = datetime.datetime.strptime(value, "%m/%d/%Y").strftime('%m/%d/%Y').lstrip('0')
 		#value.strftime("%m/%d/%Y").lstrip('0')
