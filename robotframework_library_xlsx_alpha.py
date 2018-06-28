@@ -11,9 +11,9 @@ def make_excel_file(file_name):
         wb.save(file_name)
 def get_row_count_xlsx(file_name):
     with closing(load_workbook(filename=file_name)) as wb:
-		ws = wb.active
-		row_count = ws.max_row
-		return	row_count      	
+	ws = wb.active
+	row_count = ws.max_row
+	return	row_count      	
 def add_value_by_list(file_name, start_column, start_row, value):
     with closing(load_workbook(filename=file_name)) as wb:
    	ws = wb.active
